@@ -4,14 +4,12 @@
 # The first or last element of the array is considered a "peak" if it is greater than it's one neighbor.
 def peak_finder(arr)
     peak = []
-    arr.each_with_index do |mid, i|
-        left 
-        right
+    arr.each_with_index do |num, i|
         if i == 0 && num > arr[i + 1]
             arr << num
         elsif i == (arr.length - 1) && num > arr[i - 1]
             arr << num
-        elsif (num > arr[i - 1]) && (num > arr[i + 1])
+        elsif num > arr[i + 1] && num > arr[i - 1]
             arr << num
         end
     end
