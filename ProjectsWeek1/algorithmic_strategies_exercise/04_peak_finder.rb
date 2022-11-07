@@ -6,11 +6,11 @@ def peak_finder(arr)
     peak = []
     arr.each_with_index do |num, i|
         if i == 0 && num > arr[i + 1]
-            arr << num
+            peak << num
         elsif i == (arr.length - 1) && num > arr[i - 1]
-            arr << num
-        elsif num > arr[i + 1] && num > arr[i - 1]
-            arr << num
+            peak << num
+        elsif num > arr[i - 1] && num > arr[i + 1]
+            peak << num
         end
     end
     peak
