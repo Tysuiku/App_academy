@@ -6,18 +6,17 @@
 
 require "byebug"
 
-little_words = [ "and", "the", "over", "a", "on", "of" ]
-
 def titleize(title)
+  little_words = [ "and", "the", "over", "a", "on", "of" ]
   words = title.split(" ")
 
-  titleized_words = words.map.with_index do |i, word|
+  titleized_words = words.map.with_index do |word, i|
     if i == 0 || !little_words.include?(word)
       word.capitalize
     else
       word.downcase
     end
-  end
+  end 
 
   titleized_words.join(" ")
 end
