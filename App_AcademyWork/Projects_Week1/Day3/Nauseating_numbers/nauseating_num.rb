@@ -151,8 +151,12 @@ end
 
 #tribonacci_number
 
-def tribonacci_number()
-
+def tribonacci_number(n)
+    seq = [1, 1, 2]
+    while seq.length <= n
+        seq << seq[-3] + seq[-2] + seq[-1]
+    end
+    seq[n - 1]
 end
 
 p tribonacci_number(1)  # 1
