@@ -77,16 +77,81 @@ end
 def counted_characters(str)
     hash = char_count(str)
     arr = []
-        str.each_char do |char|
-            if hash[char] > 2
-                arr << char
+        hash.each do |k, v|
+            if v > 2 
+                arr << k
             end
         end
     
     arr
 end
 
-p counted_characters("that's alright folks") # ["t"]
-p counted_characters("mississippi") # ["i", "s"]
-p counted_characters("hot potato soup please") # ["o", "t", " ", "p"]
-p counted_characters("runtime") # []
+# p counted_characters("that's alright folks") # ["t"]
+# p counted_characters("mississippi") # ["i", "s"]
+# p counted_characters("hot potato soup please") # ["o", "t", " ", "p"]
+# p counted_characters("runtime") # []
+
+#triplet_true?
+
+def triplet_true(str)
+    (0...str.length).each do |i|
+        if str[i] == str[i+1] && str[i] == str[i+2]
+            return true
+        end
+    end
+
+    false
+end
+
+# p triplet_true('caaabb')        # true
+# p triplet_true('terrrrrible')   # true
+# p triplet_true('runninggg')     # true
+# p triplet_true('bootcamp')      # false
+# p triplet_true('e')             # false
+
+def word_encode(str, hash)
+    word = ""
+    str.each_char do |char|
+        if hash[char] != nil
+            word += hash[char]
+        else
+            word += "?"
+        end
+    end
+
+    word
+end
+
+def energetic_encoding(str, hash)
+    newstr = []
+    str.split(" ").each do |word|
+        newstr << word_encode(word, hash)
+    end
+
+    newstr.join(" ")
+end
+
+# p energetic_encoding('sent sea',
+#     'e'=>'i', 's'=>'z', 'n'=>'m', 't'=>'p', 'a'=>'u'
+# ) # 'zimp ziu'
+
+# p energetic_encoding('cat',
+#     'a'=>'o', 'c'=>'k'
+# ) # 'ko?'
+
+# p energetic_encoding('hello world',
+#     'o'=>'i', 'l'=>'r', 'e'=>'a'
+# ) # '?arri ?i?r?'
+
+# p energetic_encoding('bike', {}) # '????'
+
+#uncompress
+def uncompress(str)
+    newstr = ""
+    str.each_char_with_index do |char, i|
+        
+end
+
+uncompress('a2b4c1') # 'aabbbbc'
+uncompress('b1o2t1') # 'boot'
+uncompress('x3y1x2z4') # 'xxxyxxzzzz'
