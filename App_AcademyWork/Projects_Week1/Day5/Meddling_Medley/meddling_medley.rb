@@ -148,10 +148,27 @@ end
 #uncompress
 def uncompress(str)
     newstr = ""
-    str.each_char_with_index do |char, i|
-        
+    (0...str.length - 1).each do |i|
+       newstr += (str[i] * str[i+1].to_i)
+    end
+
+    p newstr
 end
 
-uncompress('a2b4c1') # 'aabbbbc'
-uncompress('b1o2t1') # 'boot'
-uncompress('x3y1x2z4') # 'xxxyxxzzzz'
+# uncompress('a2b4c1') # 'aabbbbc'
+# uncompress('b1o2t1') # 'boot'
+# uncompress('x3y1x2z4') # 'xxxyxxzzzz'
+
+#conjunct_select
+def conjunct_select()
+
+end
+
+is_positive = Proc.new { |n| n > 0 }
+is_odd = Proc.new { |n| n.odd? }
+less_than_ten = Proc.new { |n| n < 10 }
+
+p conjunct_select([4, 8, -2, 11, 7, -3, 13], is_positive) # [4, 8, 11, 7, 13]
+p conjunct_select([4, 8, -2, 11, 7, -3, 13], is_positive, is_odd) # [11, 7, 13]
+p conjunct_select([4, 8, -2, 11, 7, -3, 13], is_positive, is_odd, less_than_ten) # [7]
+convert_pig_latin
