@@ -1,0 +1,19 @@
+git init  creates a local Git repository
+
+git status see current changes from last commit
+
+git log see list of commits 
+
+-------------------------------------------------
+
+git add <file-name> add a single file to the staging area 
+
+git add. add all files from current directory (and all child directories)(changed files)
+git add-A 
+
+git commit -m <message> moves updates from staging to .git (verb; imperative mood; no emoji)
+
+git diff show what changed from last commit to staged changes 
+
+-------------------------------------------------
+
